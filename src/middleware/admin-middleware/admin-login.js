@@ -1,8 +1,8 @@
-export const validateSignUp = (req, res, next) => {
+export const isValue = (req, res, next) => {
     const { email, password } = req.body
 
     if (!email) {
-        res.status(400).json({
+        res.status(400).json({  
             error: "Bad Request",
             message: "Email required"
         })

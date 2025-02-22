@@ -1,4 +1,4 @@
-export const checkingValue = (req,res,next) => {
+export const checkValue = (req,res,next) => {
     const { email, password } = req.body
     const checkEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const checkPassword = /^(?=.*\d)(?=.*[a-zA-Z]).+$/;
