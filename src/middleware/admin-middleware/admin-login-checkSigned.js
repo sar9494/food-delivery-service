@@ -5,7 +5,7 @@ export const checkSigned = async (req, res) => {
         const isSigned = await Admin.findOne({ email });
         if(isSigned.password===password){
         res.send({
-            su
+            success:true
         }).status(200)
         }
         console.log(isSigned);
