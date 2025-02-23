@@ -1,13 +1,12 @@
-export const checkValue = (req,res,next) => {
-    const { email, password } = req.body
-    const checkEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const checkPassValue = (req,res,next) => {
+    const { password,confirm } = req.body
     const checkPassword = /^(?=.*\d)(?=.*[a-zA-Z]).+$/;
-    if (!checkEmail.test(email)) {
+    if (!checkPassword.test(password)) {
         res.status(400).send({
             error:true,
             message:"wrong format"
         })
-    } else if(!checkPassword.test(password)){
+    } else if (!checkPassword.test(confirm)) {
         res.status(400).send({
             error:true,
             message:"wrong format"
