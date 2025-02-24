@@ -21,11 +21,6 @@ app.use(cors())
 app.use('/admin',adminRouter)
 app.use('/user',userSignUpRouter)
 app.use('/user',userLoginRouter)
-// app.post('/')
-// app.use("/",(req,res)=>{
-// res.send('hello')
-// })
-// app.post("/",checkValue)
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
   })
