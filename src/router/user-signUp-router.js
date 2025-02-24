@@ -10,4 +10,4 @@ import { userSignUpController } from '../controller/user-controller/user-signup-
 export const userSignUpRouter =express.Router()
 
 userSignUpRouter.post('/signup',isEmailValue,checkEmailValue,checkUserSigned)
-userSignUpRouter.post('/signup/passwords',isPassValue,checkPassValue,checkConfirmPassword,userSignUpController)
+userSignUpRouter.post('/signup/password',isPassValue,checkPassValue,checkConfirmPassword,userSignUpController)
