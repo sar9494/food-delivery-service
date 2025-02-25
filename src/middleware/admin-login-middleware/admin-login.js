@@ -2,7 +2,7 @@ export const isValue = (req, res, next) => {
     const { email, password } = req.body
 
     if (!email) {
-        res.status(400).send({  
+        res.status(400).send({
             error: "Bad Request",
             message: "Email required"
         })
@@ -11,7 +11,7 @@ export const isValue = (req, res, next) => {
             error: "Bad Request",
             message: "Password required"
         })
-    } else { 
+    } else {
         next()
     }
 }
