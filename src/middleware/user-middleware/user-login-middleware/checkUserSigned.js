@@ -1,12 +1,9 @@
-import { Users } from "../../models/user-schema.js"
+import { Users } from "../../../models/user-schema.js"
 import bcrypt from 'bcrypt'
 export const checkUserSigned = async (req, res, next) => {
     const { email, password } = req.body
     try {
         const isSigned = await Users.findOne({ email });
-        console.log("hkk", bcrypt.compare(password, isSigned.password));
-        console.log(password);
-
 
         if (!isSigned) {
             res.send({
@@ -29,9 +26,8 @@ export const checkUserSigned = async (req, res, next) => {
                 })
             }
         }
-        console.log(isSigned);
     } catch (error) {
         console.log(error);
-        res.send("doo")
+        res.status(500).send("User sign in error:", error)
     }
 }

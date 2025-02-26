@@ -4,12 +4,8 @@ const userSchema = new mongoose.Schema({
     password: { type: String, require: true },
     phoneNumber: { type: Number, },
     address: { type: String, },
-    role: { type: mongoose.Types.ObjectId, enum: { USER: "USER", ADMIN: "ADMIN" } default:`${enum.USER}`},
-    orderedFoods: {
-        type: [{
-            foodId: { type: String }
-        }]
-    },
+    role: { type: String, enum: ["USER", "ADMIN"], default: "USER", require: true },
+    orderedFoods: { type: mongoose.Types.ObjectId, ref: "foodOrders" },
     ttl: { type: Date },
     isVerified: { type: Boolean },
 }, { timestamps: true })

@@ -1,4 +1,4 @@
-import { Users } from "../../models/user-schema.js"
+import { Users } from "../../../models/user-schema.js"
 export const checkUserSigned = async (req, res, next) => {
     const { email } = req.body
     try {
