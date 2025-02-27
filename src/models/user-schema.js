@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
-    email: { type: String, require: true },
-    password: { type: String, require: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
     phoneNumber: { type: Number, },
     address: { type: String, },
-    role: { type: String, enum: ["USER", "ADMIN"], default: "USER", require: true },
+    role: { type: String, enum: ["USER", "ADMIN"], default: "USER", required: true },
     orderedFoods: { type: mongoose.Types.ObjectId, ref: "foodOrders" },
     ttl: { type: Date },
     isVerified: { type: Boolean },
