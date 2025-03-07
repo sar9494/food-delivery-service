@@ -6,7 +6,11 @@ const foodSchema = new mongoose.Schema(
     price: { type: Number, required: true },
     image: { type: String, required: true },
     ingredients: { type: String, required: true },
-    category: { type: mongoose.Types.ObjectId, ref: "categories" },
+    category: {
+      type: mongoose.Types.ObjectId,
+      ref: "categories",
+      required: true,
+    },
   },
   { timestamps: true }
 );
