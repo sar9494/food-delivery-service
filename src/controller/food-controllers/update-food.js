@@ -1,14 +1,31 @@
-import { FoodModel } from "../../models/food-schema";
-export const UpdateFood = async (req, res) => {
-    const { foodName, price } = req.body
-    try {
-        const updateFood = await FoodModel.findOneAndUpdate({ foodName }, { price, image, ingredients, category }, { new: true })
-        await updateFood.save();
-        res.status(201).send(updateFood)
-    } catch (error) {
-        res.status(500).send({
-            success: false,
-            message: error
-        })
+import { FoodModel } from "../../models/food-schema.js";
+
+export const updateFood = async (req, res) => {
+  const { _id, foodName, price, image, ingredients, category } = req.body;
+
+  try {
+    const updatedFood = await FoodModel.findByIdAndUpdate(
+      _id,
+      { foodName, price, image, ingredients, category },
+      { new: true }
+    );
+
+    if (!updatedFood) {
+      return res.status(404).send({
+        success: false,
+        message: "Food not found",
+      });
     }
-}
+
+    return res.status(200).send({
+      success: true,
+      message: "Food updated successfully",
+      food: updatedFood,
+    });
+  } catch (error) {
+    return res.status(500).send({
+      success: false,
+      message: error.message,
+    });
+  }
+};
