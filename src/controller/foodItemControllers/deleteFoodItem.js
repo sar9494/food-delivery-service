@@ -1,4 +1,4 @@
-import { FoodItemModel } from "../../models/foodOrderItem-schema.js";
+import { FoodItemModel } from "../../models/foodOrderItemSchema.js";
 export const deleteFoodItem = async (req, res) => {
   const { food } = req.body;
   try {

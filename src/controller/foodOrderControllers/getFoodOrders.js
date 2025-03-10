@@ -1,4 +1,4 @@
-import { FoodOrderModel } from "../../models/foodOrderSchema";
+import { FoodOrderModel } from "../../models/foodOrderSchema.js";
 export const getOrders = async (req, res) => {
     try {
         const allOrders = await FoodOrderModel.find()

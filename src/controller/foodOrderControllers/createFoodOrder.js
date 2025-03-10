@@ -2,7 +2,7 @@ import { FoodOrderModel } from "../../models/foodOrderSchema.js"
 export const createFoodOrder = async (req, res) => {
     const { user, totalPrice, foodOrderItems, status } = req.body
     try {
-        const newOrder = FoodOrderModel.create({ user: user, totalPrice: totalPrice, foodOrderItems: foodOrderItems, status: status })
+        const newOrder = await FoodOrderModel.create({ user: user, totalPrice: totalPrice, foodOrderItems: foodOrderItems, status: status })
         await newOrder.save();
         res.status(201).send(newOrder)
     } catch (error) {
