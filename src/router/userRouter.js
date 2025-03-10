@@ -1,8 +1,8 @@
 import express from 'express'
-import { updateUser } from '../controller/user-controller/updateUser.js'
-import { DeleteUser } from '../controller/user-controller/deleteUser.js'
-import { userSignUpRouter } from './user-signUp-router.js'
-import { userLoginRouter } from './user-loginRouter.js'
+import { updateUser } from '../controller/userController/updateUser.js'
+import { DeleteUser } from '../controller/userController/deleteUser.js'
+import { userSignUpRouter } from './userSignUpRouter.js'
+import { userLoginRouter } from './userLoginRouter.js'
 export const userRouter = express.Router()
 userRouter.delete("/", DeleteUser)
 userRouter.put("/", updateUser)
