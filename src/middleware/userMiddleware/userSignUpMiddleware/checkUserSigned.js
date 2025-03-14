@@ -14,7 +14,6 @@ export const checkUserSigned = async (req, res, next) => {
                 message: "Create password"
             })
         }
-        console.log(isSigned);
     } catch (error) {
         console.log(error);
         res.send("doo")
