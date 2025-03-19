@@ -1,5 +1,5 @@
 import { Users } from "../../../models/userSchema.js"
-export const checkUserSigned = async (req, res, next) => {
+export const checkUserExist = async (req, res, next) => {
     const { email } = req.body
     try {
         const isSigned = await Users.findOne({ email });

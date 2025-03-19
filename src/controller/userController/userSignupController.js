@@ -9,7 +9,10 @@ export const userSignUpController = async (req, res) => {
       password: hashedPassword,
     },);
     await newUser.save();
-    res.send(newUser).status(201);
+    res.send({
+      success:true,
+      message:"Created new account."
+    }).status(201);
   } catch (error) {
     console.log("Error occured", error);
     res.send().status(400);
