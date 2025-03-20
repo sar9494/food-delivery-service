@@ -16,7 +16,7 @@ export const getCategories = async (req, res) => {
       {
         // Group by category and calculate the total price of food items in each category
         $project: {
-          categoryName: "$categoryName", // Assuming the category has a `name` field
+          categoryName: 1, // Assuming the category has a `name` field
           foodCount: {
             $size: "$foods" // Count the number of foods in each category
           }

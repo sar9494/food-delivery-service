@@ -1,12 +1,15 @@
 import { Users } from "../../models/userSchema.js"
 export const updateUser = async (req, res) => {
-    const { email, phoneNumber, address, } = req.body
+    const {  phoneNumber, address, user} = req.body
+    const {id}=user
     try {
-        const updateUser = await Users.findOneAndUpdate({ email }, { phoneNumber, address }, { new: true })
-        console.log(updateUser);
+        console.log(id);
+        
+        const updatedUser = await Users.findByIdAndUpdate(id, { phoneNumber, address })
+        console.log("user",updatedUser);
 
-        if (updateUser) {
-            res.status(200).send(updateUser)
+        if (updatedUser) {
+            res.status(200).send(updatedUser)
         } else {
             res.status(404).send({
                 success: false,
@@ -14,6 +17,7 @@ export const updateUser = async (req, res) => {
             })
         }
     } catch (error) {
+        
         res.status(500).send(error)
     }
 }
