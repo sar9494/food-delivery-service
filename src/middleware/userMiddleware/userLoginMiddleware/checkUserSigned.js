@@ -27,13 +27,13 @@ export const checkUserSigned = async (req, res, next) => {
                     success: true,
                     message: "logged in",
                     token: token
-                })
+                }).status(200)
             }
             else {
                 res.send({
                     success: false,
                     message: "Wrong password"
-                })
+                }).status(400)
             }
         }
     } catch (error) {

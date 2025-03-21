@@ -7,15 +7,12 @@ try {
     console.log(decoded.date._id);
     
     console.log("id",decoded.date._id);
-    
-// next(decoded.date._id)
+    req.body.id=decoded.date._id
+next()
 } catch (error) {
     res.send({
         success:false,
         message:`error ${error}`
     })
 }
-    
-
-
 }

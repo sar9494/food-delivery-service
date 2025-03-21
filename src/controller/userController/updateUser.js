@@ -1,11 +1,10 @@
 import { Users } from "../../models/userSchema.js"
 export const updateUser = async (req, res) => {
-    const {  phoneNumber, address, user} = req.body
-    const {id}=user
+    const {  phoneNumber, address, id} = req.body
     try {
         console.log(id);
-        
-        const updatedUser = await Users.findByIdAndUpdate(id, { phoneNumber, address })
+        // res.send(id)
+        const updatedUser = await Users.findByIdAndUpdate(id, { phoneNumber, address },{new:true})
         console.log("user",updatedUser);
 
         if (updatedUser) {
