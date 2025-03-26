@@ -22,7 +22,7 @@ export const checkUserSigned = async (req, res, next) => {
             const decodePass = "123"
             if (isCorrect) {
                 const token = jwt.sign(
-                    { exp: Math.floor(Date.now() / 1000) + 60 * 60, date: isSigned }, decodePass)
+                    { exp: Math.floor(Date.now() / 1000) + 60 * 60, data: isSigned }, decodePass)
                 res.send({
                     success: true,
                     message: "logged in",
