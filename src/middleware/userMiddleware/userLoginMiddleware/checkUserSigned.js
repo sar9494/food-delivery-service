@@ -26,7 +26,12 @@ export const checkUserSigned = async (req, res, next) => {
                 res.send({
                     success: true,
                     message: "logged in",
-                    token: token
+                    token: token,
+                    user:{
+                        email:isSigned.email,
+                        role:isSigned.role,
+                        id:isSigned._id
+                    }
                 }).status(200)
             }
             else {
