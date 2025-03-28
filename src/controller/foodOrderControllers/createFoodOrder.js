@@ -1,6 +1,6 @@
 import { FoodOrderModel } from "../../models/foodOrderSchema.js"
 export const createFoodOrder = async (req, res) => {
-    const { user, totalPrice, foodOrderItems, status } = req.body
+    const { user, totalPrice,foodOrderItems, status } = req.body
     try {
         const newOrder = await FoodOrderModel.create({ user: user, totalPrice: totalPrice, foodOrderItems: foodOrderItems, status: status })
         await newOrder.save();
