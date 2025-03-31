@@ -8,6 +8,6 @@ const foodOrderSchema = new mongoose.Schema({
         quantity:{type:Number,required:true}
     }],
     status: { type: String, enum: ["PENDING", "CANCELED", 'DELIVERED'], default: "PENDING" },
-}, { timeStamp: true })
+}, { timestamps: true })
 
 export const FoodOrderModel = mongoose.model("foodOrders", foodOrderSchema)

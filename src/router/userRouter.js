@@ -8,7 +8,7 @@ import { getUser } from '../controller/userController/getUser.js'
 import { isIdValid } from '../middleware/userMiddleware/isIdValid.js'
 export const userRouter = express.Router()
 userRouter.delete("/", DeleteUser)
-userRouter.put("/", loggedIn ,updateUser)
+userRouter.put("/",isIdValid, loggedIn ,updateUser)
 userRouter.use("/login", userLoginRouter)
 userRouter.use("/signup", userSignUpRouter)
 userRouter.post("/",isIdValid,getUser)

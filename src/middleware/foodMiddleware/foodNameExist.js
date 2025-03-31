@@ -5,7 +5,6 @@ export const foodNameExist = async (req, res, next) => {
         const food = await FoodModel.findOne({ $or: [
             { 'foodName' :foodName },
           ]})
-          console.log(food);
           
         if (food!==null) {
             res.status(400).send({

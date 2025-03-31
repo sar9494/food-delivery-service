@@ -1,14 +1,16 @@
 import jwt from "jsonwebtoken"
+import { Users } from "../../models/userSchema.js"
 
 export const loggedIn=(req,res,next)=>{
-const {token}=req.body
+const {id}=req.body
 try {
-    const decoded=jwt.verify(token,"123")
-    console.log(decoded.date._id);
-    
-    console.log("id",decoded.date._id);
-    req.body.id=decoded.date._id
+    const isUserExist=Users.findById(id)
+    if(isUserExist){
 next()
+    }else{res.status(404).send({
+        success:false,
+        message:"User not found."
+    })}
 } catch (error) {
     res.send({
         success:false,
