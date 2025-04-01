@@ -4,5 +4,7 @@ export const isIdValid = (req, res, next) => {
     res.status(404).send({
       message: "Id is required.",
     });
-  } else next();
+  } else {
+    next();
+  }
 };
