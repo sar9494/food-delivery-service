@@ -43,7 +43,6 @@ export const getUserOrders = async (req, res) => {
         };
       })
     );
-    console.log(ordersWithFoodDetails);
 
     res.status(200).send(ordersWithFoodDetails);
   } catch (error) {

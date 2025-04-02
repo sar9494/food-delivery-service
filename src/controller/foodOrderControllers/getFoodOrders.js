@@ -11,7 +11,6 @@ export const getFoodOrders = async (req, res) => {
             _id: { $in: order.user },
           })
           .lean();
-        console.log(userDetail);
 
         const foodIds = order.foodOrderItems.map((item) => item.food);
 
@@ -34,6 +33,7 @@ export const getFoodOrders = async (req, res) => {
           return {
             quantity: item.quantity,
             foodName: foodDetail.foodName,
+            image: foodDetail.image,
           };
         });
 
@@ -43,6 +43,7 @@ export const getFoodOrders = async (req, res) => {
           totalPrice: order.totalPrice,
           status: order.status,
           user: userDetail.email,
+          address: userDetail.address,
           createdAt: order.createdAt,
         };
       })
