@@ -4,12 +4,12 @@ import {
   createFoodOrder,
   deleteOrder,
   updateOrder,
-  getOrders,
+  getFoodOrders,
 } from "../controller/foodOrderControllers/index.js";
 import express from "express";
-import { getUserOrders } from "../controller/foodOrderControllers/getUser'sOrders.js";
+import { getUserOrders } from "../controller/foodOrderControllers/getUserOrders.js";
 export const foodOrderRouter = express.Router();
-foodOrderRouter.get("/foodOrders", getOrders);
+foodOrderRouter.get("/foodOrders", getFoodOrders);
 foodOrderRouter.post("/foodOrders", createFoodOrder);
 foodOrderRouter.post("/userfoodOrders", getUserOrders);
 foodOrderRouter.put("/foodOrders", isIdValid, orderExist, updateOrder);
